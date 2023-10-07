@@ -38,7 +38,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return pagemodel(
         AppBar: AppBar(
-          title: Text('Sohbet'),
+          title: Text('Chat'),
           automaticallyImplyLeading: false,
         ),
         Widget: ListView.builder(
@@ -71,55 +71,63 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Chatroom(),
-            ));
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              radius: 25.0,
-              backgroundImage:
-                  AssetImage('assets/image/${message.senderPhoto}'),
-            ),
-            SizedBox(width: 10.0),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    message.senderName,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
+    return Column(
+      children: [
+        InkWell(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Chatroom(),
+                ));
+          },
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  radius: 25.0,
+                  backgroundImage:
+                      AssetImage('assets/image/${message.senderPhoto}'),
+                ),
+                SizedBox(width: 10.0),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        message.senderName,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Text(
+                        message.text.length > 30
+                            ? '${message.text.substring(0, 30)}...'
+                            : message.text,
+                        style: TextStyle(fontSize: 14.0),
+                      ),
+                    ],
                   ),
-                  Text(
-                    message.text.length > 30
-                        ? '${message.text.substring(0, 30)}...'
-                        : message.text,
-                    style: TextStyle(fontSize: 14.0),
+                ),
+                Text(
+                  message.time,
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.grey,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Text(
-              message.time,
-              style: TextStyle(
-                fontSize: 12.0,
-                color: Colors.grey,
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8, right: 8),
+          child: Divider(),
+        )
+      ],
     );
   }
 }

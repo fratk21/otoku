@@ -51,40 +51,32 @@ class _productscreenState extends State<productscreen>
         height: 120,
         centerTitle: false,
         autoleading: false,
-        backgroundColor: flashwhite,
+        backgroundColor: white,
         title: Text(
           "OTOKU",
           style:
               TextStyle(fontFamily: "BlackOpsOne", fontSize: 30, color: orange),
         ),
         actions: [
-          TextButton(
-            onPressed: () {
-              // Düğmeye tıklanınca yapılacak işlem
-            },
-            style: TextButton.styleFrom(
-              primary: Colors.black, // Düğme rengi
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.location_city_rounded,
-                  color: black,
-                ), // İkon
-                SizedBox(width: 8.0), // İkon ile metin arasında boşluk
-                Container(
-                  width: 100,
-                  child: Text(
-                    '${locationProvider.city} ,${locationProvider.country}',
-                    overflow: TextOverflow
-                        .ellipsis, // Metin kesildiğinde "..." ile göster
-                    maxLines: 1, // Metin sadece bir satırda gösterilsin
-                    style: TextStyle(color: gblue),
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.location_city_rounded,
+                color: black,
+              ), // İkon
+              SizedBox(width: 8.0), // İkon ile metin arasında boşluk
+              Container(
+                width: 100,
+                child: Text(
+                  '${locationProvider.country}',
+                  overflow: TextOverflow
+                      .ellipsis, // Metin kesildiğinde "..." ile göster
+                  maxLines: 1, // Metin sadece bir satırda gösterilsin
+                  style: TextStyle(color: gblue),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
         preferredSizeWidget: PreferredSize(
@@ -213,16 +205,6 @@ class _productscreenState extends State<productscreen>
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
-        backgroundColor: orange,
-        child: Icon(
-          CupertinoIcons.add_circled,
-          color: flashwhite,
-          size: 40,
-        ),
-        onPressed: () {},
       ),
     );
   }

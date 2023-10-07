@@ -19,7 +19,7 @@ class _forumscreenState extends State<forumscreen> {
         height: 120,
         centerTitle: false,
         autoleading: false,
-        backgroundColor: flashwhite,
+        backgroundColor: white,
         title: Text(
           "OTOKU FORUM",
           style:
@@ -115,10 +115,6 @@ class _forumscreenState extends State<forumscreen> {
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
       ),
     );
   }

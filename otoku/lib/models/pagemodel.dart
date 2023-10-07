@@ -20,7 +20,7 @@ class _pagemodelState extends State<pagemodel> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: flashwhite,
+      backgroundColor: white,
       appBar: widget.AppBar,
       body: widget.Widget,
       floatingActionButton: widget.floatingActionButton,
