@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/navigator.dart';
-import 'package:otoku/pages/slpash/onboarding.dart';
+import 'package:otoku/pages/loginandregister/view/main_view.dart';
+
 import 'package:otoku/provider/locationprovider.dart';
-import 'package:otoku/splash.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -38,10 +38,17 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const navigatorscreen(),
+      home: MainView(),
     );
   }
 }
+
+const defaultInputBorder = OutlineInputBorder(
+  borderRadius: BorderRadius.all(Radius.circular(16)),
+  borderSide: BorderSide(
+    color: Color(0xFFDEE3F2),
+    width: 1,
+  ),
+);

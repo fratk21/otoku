@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:otoku/pages/forum.dart';
-import 'package:otoku/pages/messages.dart';
-import 'package:otoku/pages/product.dart';
+import 'package:otoku/pages/forum/screen/forum.screen.dart';
+import 'package:otoku/pages/home/screen/home.screen.dart';
+import 'package:otoku/pages/messages/screen/message.screen.dart';
 import 'package:otoku/pages/profile.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -56,13 +55,14 @@ class _navigatorscreenState extends State<navigatorscreen> {
             icon: Icon(CupertinoIcons.house_alt),
             selectedIcon: Icon(CupertinoIcons.house_alt_fill),
             // selectedColor: Colors.teal,
-            backgroundColor: orange,
+            selectedColor: red,
+            unSelectedColor: orange,
             title: const Text('Home'),
           ),
           BottomBarItem(
             icon: const Icon(CupertinoIcons.chat_bubble_2),
             selectedIcon: const Icon(CupertinoIcons.chat_bubble_2_fill),
-            selectedColor: Colors.red,
+            selectedColor: red,
             unSelectedColor: Colors.purple,
             // backgroundColor: Colors.orange,
             title: const Text('Forum'),
@@ -71,8 +71,8 @@ class _navigatorscreenState extends State<navigatorscreen> {
               icon: const Icon(CupertinoIcons.pencil_outline),
               selectedIcon:
                   const Icon(CupertinoIcons.pencil_ellipsis_rectangle),
-              backgroundColor: Colors.amber,
-              selectedColor: Colors.deepOrangeAccent,
+              unSelectedColor: Colors.amber,
+              selectedColor: red,
               title: const Text('Message')),
           BottomBarItem(
               icon: const Icon(
@@ -81,8 +81,8 @@ class _navigatorscreenState extends State<navigatorscreen> {
               selectedIcon: const Icon(
                 Icons.person,
               ),
-              backgroundColor: Colors.purpleAccent,
-              selectedColor: Colors.deepPurple,
+              unSelectedColor: Colors.purpleAccent,
+              selectedColor: red,
               title: const Text('Profile')),
         ],
         hasNotch: true,
@@ -110,9 +110,9 @@ class _navigatorscreenState extends State<navigatorscreen> {
 }
 
 List<Widget> _listOfWidget = <Widget>[
-  const productscreen(),
+  const homescreen(),
   const forumscreen(),
-  ChatScreen(),
+  messagesscreen(),
   const profilescreen(),
 ];
 

@@ -14,9 +14,8 @@ class profilescreen extends StatefulWidget {
 class _profilescreenState extends State<profilescreen>
     with TickerProviderStateMixin {
   bool me = false;
-  TabController? tabController;
   int selectedIndex = 0;
-
+  TabController? tabController;
   var listImage = [
     "assets/image/manga.png",
     "assets/image/manga.png",
@@ -25,7 +24,6 @@ class _profilescreenState extends State<profilescreen>
     "assets/image/manga.png",
     "assets/image/manga.png",
   ];
-
   @override
   void initState() {
     // TODO: implement initState
@@ -43,7 +41,7 @@ class _profilescreenState extends State<profilescreen>
             "Jenny Wilson",
             style: TextStyle(
               fontSize: 30.0,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w500,
             ),
           ),
           actions: [
@@ -59,8 +57,7 @@ class _profilescreenState extends State<profilescreen>
         Widget: Column(
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(
-                  "https://free2music.com/images/singer/2019/02/10/troye-sivan_2.jpg"),
+              backgroundImage: AssetImage("assets/image/manga.png"),
               radius: 70.0,
             ),
             SizedBox(height: 20.0),
@@ -87,7 +84,7 @@ class _profilescreenState extends State<profilescreen>
                     ),
                     SizedBox(height: 15.0),
                     Text(
-                      "Following",
+                      "İlanlar",
                       style: TextStyle(
                           color: Colors.black.withOpacity(0.3),
                           fontSize: 20.0,
@@ -106,7 +103,7 @@ class _profilescreenState extends State<profilescreen>
                     ),
                     SizedBox(height: 15.0),
                     Text(
-                      "Followers",
+                      "Yazılar",
                       style: TextStyle(
                           color: Colors.black.withOpacity(0.3),
                           fontSize: 20.0,
@@ -117,7 +114,7 @@ class _profilescreenState extends State<profilescreen>
                 Column(
                   children: [
                     Text(
-                      "7.5M",
+                      "15",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -125,7 +122,7 @@ class _profilescreenState extends State<profilescreen>
                     ),
                     SizedBox(height: 15.0),
                     Text(
-                      "Like",
+                      "Rozetler",
                       style: TextStyle(
                           color: Colors.black.withOpacity(0.3),
                           fontSize: 20.0,
@@ -190,24 +187,25 @@ class _profilescreenState extends State<profilescreen>
               },
               tabs: [
                 Tab(text: "Product"),
-                Tab(text: "Video"),
+                Tab(text: "Sells product"),
               ],
             ),
             SizedBox(height: 10.0),
             Expanded(
               flex: 1,
               child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
                 controller: tabController,
                 children: [
                   Center(
-                    child: Text("You don't have any videos"),
+                    child: Text("You don't have any product"),
                   ),
                   Center(
-                    child: Text("You don't have any tagged"),
+                    child: Text("You don't have any product"),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ));
   }

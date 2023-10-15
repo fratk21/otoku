@@ -13,7 +13,6 @@ class productdetailscreen extends StatefulWidget {
 }
 
 class _productdetailscreenState extends State<productdetailscreen> {
-  @override
   static const _images = [
     'assets/image/manga.png',
     'assets/image/figur.png',

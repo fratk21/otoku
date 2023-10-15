@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otoku/pages/productdeails.dart';
+import 'package:otoku/pages/home/screen/product.details.dart';
 import 'package:otoku/utils/colors.dart';
 
 class productmodel extends StatefulWidget {
@@ -91,9 +91,7 @@ class _productmodelState extends State<productmodel> {
                     });
                   },
                   icon: Icon(
-                    favorite!
-                        ? CupertinoIcons.heart
-                        : CupertinoIcons.heart_fill,
+                    favorite ? CupertinoIcons.heart : CupertinoIcons.heart_fill,
                     color: orange,
                   )),
             )),
