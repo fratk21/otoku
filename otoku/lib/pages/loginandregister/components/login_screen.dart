@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:otoku/pages/forgotpasssword/view/forgotpass.dart';
 import 'package:otoku/utils/colors.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   TextField(
                     controller: _passController,
@@ -176,13 +177,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    'Forget Password?',
-                    style: TextStyle(
-                      color: orange,
-                      fontSize: 13,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgotpassScreen(),
+                          ));
+                    },
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(
+                        color: orange,
+                        fontSize: 13,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],

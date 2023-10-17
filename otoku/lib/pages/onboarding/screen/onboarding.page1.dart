@@ -9,15 +9,14 @@ class page1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
         backgroundColor: flashwhite,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
+              SizedBox(
+                height: 50,
+              ),
               Center(
                 child: Text(
                   "Welcome To Otoku",

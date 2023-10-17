@@ -31,16 +31,15 @@ class _page2State extends State<page2> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
         backgroundColor: flashwhite,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Column(
                 children: [
                   Text(
@@ -49,7 +48,7 @@ class _page2State extends State<page2> {
                         fontFamily: "BlackOpsOne", fontSize: 35, color: orange),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Column(
                     children: [
@@ -71,6 +70,9 @@ class _page2State extends State<page2> {
                     ],
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 30,
               ),
               Container(
                 height: 50,

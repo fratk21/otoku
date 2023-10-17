@@ -60,6 +60,45 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                       decoration: InputDecoration(
+                        labelText: 'Name',
+                        labelStyle: TextStyle(
+                          color: gblue,
+                          fontSize: 15,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: gblue,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: gblue,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 56,
+                    child: TextField(
+                      controller: _emailController,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Color(0xFF393939),
+                        fontSize: 13,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w400,
+                      ),
+                      decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: TextStyle(
                           color: gblue,
@@ -87,94 +126,104 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 56,
-                    child: TextField(
-                      controller: _passController,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFF393939),
-                        fontSize: 13,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                      ),
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
-                        hintText: 'Create Password',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF837E93),
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                        ),
-                        labelStyle: TextStyle(
-                          color: Color(0xFF755DC1),
-                          fontSize: 15,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF837E93),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 140,
+                        height: 56,
+                        child: TextField(
+                          controller: _passController,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Color(0xFF393939),
+                            fontSize: 13,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
                           ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF9F7BFF),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    height: 56,
-                    child: TextField(
-                      controller: _repassController,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Color(0xFF393939),
-                        fontSize: 13,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w400,
-                      ),
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
-                        hintText: 'Confirm Password',
-                        hintStyle: TextStyle(
-                          color: Color(0xFF837E93),
-                          fontSize: 10,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                        ),
-                        labelStyle: TextStyle(
-                          color: Color(0xFF755DC1),
-                          fontSize: 15,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF837E93),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Color(0xFF9F7BFF),
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            hintText: 'Create Password',
+                            hintStyle: TextStyle(
+                              color: Color(0xFF837E93),
+                              fontSize: 10,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                            ),
+                            labelStyle: TextStyle(
+                              color: gblue,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Color(0xFF837E93),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: gblue,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      SizedBox(
+                        width: 140,
+                        height: 56,
+                        child: TextField(
+                          controller: _repassController,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Color(0xFF393939),
+                            fontSize: 13,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'Re-Password',
+                            hintText: 'Confirm Password',
+                            hintStyle: TextStyle(
+                              color: Color(0xFF837E93),
+                              fontSize: 10,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w400,
+                            ),
+                            labelStyle: TextStyle(
+                              color: gblue,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: Color(0xFF837E93),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide(
+                                width: 1,
+                                color: gblue,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 25,
@@ -191,7 +240,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               curve: Curves.ease);
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF9F7BFF),
+                          backgroundColor: orange,
                         ),
                         child: const Text(
                           'Create account',
@@ -229,10 +278,10 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease);
                         },
-                        child: const Text(
+                        child: Text(
                           'Log In ',
                           style: TextStyle(
-                            color: Color(0xFF755DC1),
+                            color: orange,
                             fontSize: 13,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
