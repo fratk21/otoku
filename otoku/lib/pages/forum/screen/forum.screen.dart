@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/models/appbarmodel.dart';
-import 'package:otoku/models/pagemodel.dart';
+import 'package:otoku/widgets/appbarmodel.dart';
+import 'package:otoku/widgets/pagemodel.dart';
 import 'package:otoku/pages/forum/viewmodel/forum.viewmodel.dart';
 import 'package:otoku/utils/colors.dart';
-import 'package:otoku/utils/search.textfield.dart';
+import 'package:otoku/widgets/search.textfield.dart';
 
 class forumscreen extends StatefulWidget {
   const forumscreen({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otoku/models/appbarmodel.dart';
-import 'package:otoku/models/pagemodel.dart';
+import 'package:otoku/widgets/appbarmodel.dart';
+import 'package:otoku/widgets/pagemodel.dart';
 import 'package:otoku/pages/home/viewmodel/category.model.dart';
 import 'package:otoku/pages/home/viewmodel/productmodel.dart';
 
 import 'package:otoku/utils/colors.dart';
-import 'package:otoku/utils/search.textfield.dart';
+import 'package:otoku/widgets/search.textfield.dart';
 
 import 'package:scroll_page_view/pager/page_controller.dart';
 import 'package:scroll_page_view/pager/scroll_page_view.dart';

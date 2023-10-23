@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/models/appbarmodel.dart';
-import 'package:otoku/models/pagemodel.dart';
+import 'package:otoku/widgets/appbarmodel.dart';
+import 'package:otoku/widgets/pagemodel.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:scroll_page_view/pager/scroll_page_view.dart';
 import 'package:scroll_page_view/scroll_page.dart';

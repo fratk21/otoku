@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/navigator.dart';
 import 'package:otoku/pages/loginandregister/view/main_view.dart';
-
 import 'package:otoku/provider/locationprovider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => LocationProvider(),
@@ -38,9 +38,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MainView(),
+      home: const MainView(),
     );
   }
 }

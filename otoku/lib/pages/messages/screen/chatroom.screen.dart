@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/models/pagemodel.dart';
+import 'package:otoku/widgets/pagemodel.dart';
 import 'package:otoku/pages/messages/viewmodel/chatroom.viewmodel.dart';
 
 class Chatroom extends StatefulWidget {

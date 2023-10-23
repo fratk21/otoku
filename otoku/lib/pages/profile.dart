@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otoku/models/appbarmodel.dart';
-import 'package:otoku/models/pagemodel.dart';
+import 'package:otoku/widgets/appbarmodel.dart';
+import 'package:otoku/widgets/pagemodel.dart';
 import 'package:otoku/utils/colors.dart';
 
 class profilescreen extends StatefulWidget {

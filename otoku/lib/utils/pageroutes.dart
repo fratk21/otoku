@@ -9,6 +9,14 @@ class routes {
         ));
   }
 
+  Future pageroutere(BuildContext context, Widget page) {
+    return Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => page,
+        ));
+  }
+
   void pageback(BuildContext context) {
     return Navigator.pop(context);
   }
