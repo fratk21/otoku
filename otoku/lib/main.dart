@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:otoku/navigator.dart';
+import 'package:otoku/pages/add/view/selectmaincategory.dart';
 import 'package:otoku/pages/loginandregister/view/main_view.dart';
 import 'package:otoku/provider/locationprovider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainView(),
+      home: navigatorscreen(),
     );
   }
 }
