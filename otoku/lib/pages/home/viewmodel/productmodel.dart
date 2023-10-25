@@ -32,8 +32,8 @@ class _productmodelState extends State<productmodel> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), // Radiuslu olacak
-              border:
-                  Border.all(color: gblue, width: 1.3), // İnce ve siyah border
+              border: Border.all(
+                  color: AppColors.gblue, width: 1.3), // İnce ve siyah border
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 8, right: 8),
@@ -72,7 +72,7 @@ class _productmodelState extends State<productmodel> {
                     overflow: TextOverflow
                         .ellipsis, // Metin kesildiğinde "..." ile göster
                     maxLines: 1, // Metin sadece bir satırda gösterilsin
-                    style: TextStyle(color: black),
+                    style: TextStyle(color: AppColors.black),
                   ),
                 ],
               ),
@@ -92,7 +92,7 @@ class _productmodelState extends State<productmodel> {
                   },
                   icon: Icon(
                     favorite ? CupertinoIcons.heart : CupertinoIcons.heart_fill,
-                    color: orange,
+                    color: AppColors.orange,
                   )),
             )),
       ],

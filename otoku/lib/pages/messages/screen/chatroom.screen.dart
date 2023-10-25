@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/pages/messages/viewmodel/chatroom.viewmodel.dart';
 
 class Chatroom extends StatefulWidget {
@@ -55,11 +55,11 @@ class ChatroomState extends State<Chatroom> {
 
   @override
   Widget build(BuildContext context) {
-    return pagemodel(
-        AppBar: AppBar(
+    return PageModel(
+        appBar: AppBar(
           title: Text('Chat Odası'),
         ),
-        Widget: Column(
+        body: Column(
           children: <Widget>[
             Flexible(
               child: ListView.builder(

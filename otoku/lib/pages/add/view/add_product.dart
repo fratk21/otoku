@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
-import 'package:otoku/widgets/customcheckbox.dart';
 import 'package:otoku/widgets/customdropdown.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/widgets/textfield.dart';
 
 class add_product_screen extends StatefulWidget {
@@ -47,9 +46,9 @@ class _add_product_screenState extends State<add_product_screen> {
 
   @override
   Widget build(BuildContext context) {
-    return pagemodel(
-      AppBar: CustomAppBar(),
-      Widget: SafeArea(
+    return PageModel(
+      appBar: CustomAppBar(),
+      body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
           children: [
@@ -96,7 +95,7 @@ class _add_product_screenState extends State<add_product_screen> {
                   borderType: BorderType.RRect,
                   radius: Radius.circular(15),
                   padding: EdgeInsets.all(4),
-                  color: gblue,
+                  color: AppColors.gblue,
                   strokeWidth: 2,
                   child: Container(
                     decoration: BoxDecoration(

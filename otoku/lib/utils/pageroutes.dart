@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-class routes {
-  Future pageroute(BuildContext context, Widget page) {
-    return Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ));
+class PageNavigator {
+  static Future<void> push(BuildContext context, Widget page) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
   }
 
-  Future pageroutere(BuildContext context, Widget page) {
-    return Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => page,
-        ));
+  static Future<void> pushReplacement(BuildContext context, Widget page) async {
+    await Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
   }
 
-  void pageback(BuildContext context) {
-    return Navigator.pop(context);
+  static void pop(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }

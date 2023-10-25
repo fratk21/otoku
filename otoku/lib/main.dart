@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:otoku/firebase_options.dart';
 
 import 'package:otoku/navigator.dart';
-import 'package:otoku/pages/add/view/selectmaincategory.dart';
 import 'package:otoku/pages/loginandregister/view/main_view.dart';
+import 'package:otoku/pages/onboarding/screen/onboarding.screen.dart';
 import 'package:otoku/provider/locationprovider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     ChangeNotifierProvider(
       create: (context) => LocationProvider(),

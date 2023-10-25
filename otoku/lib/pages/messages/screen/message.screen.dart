@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/pages/messages/viewmodel/message.viewmodel.dart';
 
 class messagesscreen extends StatefulWidget {
@@ -36,12 +36,12 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return pagemodel(
-        AppBar: AppBar(
+    return PageModel(
+        appBar: AppBar(
           title: Text('Chat'),
           automaticallyImplyLeading: false,
         ),
-        Widget: ListView.builder(
+        body: ListView.builder(
           itemCount: messages.length,
           itemBuilder: (BuildContext context, int index) {
             return MessageBubble(message: messages[index]);

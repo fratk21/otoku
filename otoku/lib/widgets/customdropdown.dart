@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/utils/colors.dart';
-import 'package:flutter/material.dart';
-import 'package:otoku/utils/colors.dart';
 
 class AnimatedDropdown extends StatefulWidget {
   final List<String> dropdownItems;
@@ -44,14 +42,14 @@ class _AnimatedDropdownState extends State<AnimatedDropdown> {
               height: 40,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: gblue,
+                  color: AppColors.gblue,
                 ),
                 borderRadius: BorderRadius.circular(10),
               ),
               alignment: Alignment.center,
               child: Text(
                 '${widget.label} : $selectedValue',
-                style: TextStyle(color: gblue),
+                style: TextStyle(color: AppColors.gblue),
               ),
             ),
           ),
@@ -61,7 +59,7 @@ class _AnimatedDropdownState extends State<AnimatedDropdown> {
               width: 200,
               decoration: BoxDecoration(
                   border: Border.all(
-                    color: gblue,
+                    color: AppColors.gblue,
                   ),
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
@@ -73,8 +71,7 @@ class _AnimatedDropdownState extends State<AnimatedDropdown> {
                             selectedValue = item;
                             isDropdownOpen = false;
                           });
-                          widget.onChanged(
-                              selectedValue); // Seçilen değeri iletiyoruz
+                          widget.onChanged(selectedValue);
                         },
                         child: Container(
                           width: 200,
@@ -83,7 +80,7 @@ class _AnimatedDropdownState extends State<AnimatedDropdown> {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: gblue,
+                                color: AppColors.gblue,
                               ),
                             ),
                           ),

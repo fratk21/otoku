@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:scroll_page_view/pager/scroll_page_view.dart';
 import 'package:scroll_page_view/scroll_page.dart';
@@ -21,12 +21,12 @@ class _productdetailscreenState extends State<productdetailscreen> {
   ];
 
   Widget build(BuildContext context) {
-    return pagemodel(
-        AppBar: CustomAppBar(
+    return PageModel(
+        appBar: CustomAppBar(
           elevation: 2,
           backgroundColor: Colors.transparent,
         ),
-        Widget: SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -150,7 +150,7 @@ class _productdetailscreenState extends State<productdetailscreen> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: red,
+                            backgroundColor: AppColors.red,
                           ),
                           SizedBox(
                             width: 10,

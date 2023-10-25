@@ -6,7 +6,7 @@ import 'package:otoku/model/json_data.dart';
 import 'package:otoku/pages/add/view/selectmaincategory.dart';
 import 'package:otoku/utils/pageroutes.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/pages/home/viewmodel/category.model.dart';
 import 'package:otoku/pages/home/viewmodel/productmodel.dart';
 
@@ -46,42 +46,22 @@ class _homescreenState extends State<homescreen>
 
   @override
   Widget build(BuildContext context) {
-    return pagemodel(
-        AppBar: CustomAppBar(
-          height: 120,
-          centerTitle: false,
-          autoleading: false,
-          backgroundColor: white,
-          title: Text(
-            "OTOKU",
-            style: TextStyle(
-                fontFamily: "BlackOpsOne", fontSize: 30, color: orange),
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell))
-          ],
-          preferredSizeWidget: PreferredSize(
-              preferredSize: Size.fromHeight(50),
-              child: searchtextfield(
-                hinttext: 'Arama yapın...',
-              )),
-        ),
-        Widget: bodyhome(context));
+    return PageModel(appBar: _appbar(), body: _bodyhome(context));
   }
 }
 
-Widget _appbar() {
+AppBar _appbar() {
   return CustomAppBar(
-    height: 120,
     centerTitle: false,
-    autoleading: false,
-    backgroundColor: white,
+    automaticallyImplyLeading: false,
+    backgroundColor: AppColors.white,
     title: Text(
       "OTOKU",
-      style: TextStyle(fontFamily: "BlackOpsOne", fontSize: 30, color: orange),
+      style: TextStyle(
+          fontFamily: "BlackOpsOne", fontSize: 30, color: AppColors.orange),
     ),
     actions: [IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell))],
-    preferredSizeWidget: PreferredSize(
+    bottom: PreferredSize(
         preferredSize: Size.fromHeight(50),
         child: searchtextfield(
           hinttext: 'Arama yapın...',
@@ -197,13 +177,13 @@ Map<String, dynamic>? findCategoryByName(String categoryNameToFind) {
 
 void categorycontrol(foundCategory, BuildContext context) {
   if (foundCategory != null) {
-    routes().pageroute(context, SubCategoriesPage(category: foundCategory));
+    PageNavigator.push(context, SubCategoriesPage(category: foundCategory));
   } else {
     print('Kategori bulunamadı.');
   }
 }
 
-Widget bodyhome(BuildContext context) {
+Widget _bodyhome(BuildContext context) {
   final List<String> _images = [
     'assets/image/manga.png',
     'assets/image/manga.png',
@@ -225,54 +205,51 @@ Widget bodyhome(BuildContext context) {
   }
 
   return SingleChildScrollView(
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 164,
-            child: ScrollPageView(
-              controller: ScrollPageController(),
-              children: _images.map((image) => _imageView(image)).toList(),
+    child: Column(
+      children: <Widget>[
+        SizedBox(
+          height: 164,
+          child: ScrollPageView(
+            controller: ScrollPageController(),
+            children: _images.map((image) => _imageView(image)).toList(),
+          ),
+        ),
+        SizedBox(height: 10),
+        Row(
+          children: [
+            Text(
+              "Category",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Text(
-                "Category",
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          ],
+        ),
+        SizedBox(height: 10),
+        _categorys(context),
+        SizedBox(height: 20),
+        Row(
+          children: [
+            Text(
+              "Güncel ilanlar",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
               ),
-            ],
-          ),
-          SizedBox(height: 10),
-          _categorys(context),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Text(
-                "Güncel ilanlar",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          GridView.count(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            children: List.generate(10, (index) {
-              // İlan öğelerini burada ekleyin
-              return productmodel();
-            }),
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+        SizedBox(height: 10),
+        GridView.count(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: List.generate(10, (index) {
+            // İlan öğelerini burada ekleyin
+            return productmodel();
+          }),
+        ),
+      ],
     ),
   );
 }

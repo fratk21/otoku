@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/pages/add/view/add_product.dart';
+import 'package:otoku/pages/add/view/selectmaincategory.dart';
 import 'package:otoku/pages/forum/screen/forum.screen.dart';
 import 'package:otoku/pages/home/screen/home.screen.dart';
 import 'package:otoku/pages/messages/screen/message.screen.dart';
-import 'package:otoku/pages/profile.dart';
+import 'package:otoku/pages/profile/view/profile.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/utils/pageroutes.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -38,7 +39,7 @@ class _navigatorscreenState extends State<navigatorscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: flashwhite,
+      backgroundColor: AppColors.flashwhite,
       extendBody: true,
       body: buildSafeAreaWithPageView(_pageController, _listOfWidget),
       bottomNavigationBar:
@@ -49,7 +50,7 @@ class _navigatorscreenState extends State<navigatorscreen> {
         });
       }),
       floatingActionButton: buildFloatingActionButton(fabContent, () {
-        routes().pageroute(context, add_product_screen());
+        PageNavigator.push(context, MainCategoriesPage());
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

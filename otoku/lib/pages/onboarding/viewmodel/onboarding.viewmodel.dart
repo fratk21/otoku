@@ -1,60 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:otoku/utils/colors.dart';
+import 'package:otoku/widgets/sizedbox.dart';
+import 'package:otoku/widgets/textmodels.dart';
 
-class stun extends StatelessWidget {
-  final String title;
-  final String description;
-  final String image;
-
-  const stun(
-      {Key? key,
-      required this.title,
-      required this.description,
-      required this.image})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      elevation: 0,
-      color: Colors.transparent,
-      child: Row(
-        children: [
-          Image.asset(
-            image,
-            height: 100,
-            width: 100,
-          ),
-
-          SizedBox(width: 10), // İkon ile metin arasına boşluk ekleyin
-          Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Metinleri sola hizalayın
-            children: [
-              Text(
-                title,
+Widget customCard({
+  required String title,
+  required String description,
+  required String image,
+}) {
+  return Card(
+    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15.0),
+    ),
+    elevation: 0,
+    color: AppColors.transparent,
+    child: Row(
+      children: [
+        Image.asset(
+          image,
+          height: 100,
+          width: 100,
+        ),
+        sizedBoxW(10),
+        Column(
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // Metinleri sola hizalayın
+          children: [
+            CustomText(
+                text: title,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-              SizedBox(height: 5), // Metinler arasına boşluk ekleyin
-              Container(
+                maxLines: 2),
+            sizedBoxH(5),
+            // Metinler arasına boşluk ekleyin
+            Container(
                 width: 200, // Metin kutusu genişliğini ayarlayın
-                child: Text(
-                  description,
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+                child: CustomText(
+                    text: description,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    maxLines: 6)),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+Widget createCardList(List<Map<String, String>> cardDataList) {
+  List<Widget> cardWidgets = [];
+
+  for (var cardData in cardDataList) {
+    cardWidgets.add(
+      customCard(
+        title: cardData['title'] ?? '',
+        description: cardData['description'] ?? '',
+        image: cardData['image'] ?? '',
       ),
     );
   }
+
+  return Column(
+    children: cardWidgets,
+  );
 }

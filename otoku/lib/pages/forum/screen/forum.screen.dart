@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
-import 'package:otoku/widgets/pagemodel.dart';
+import 'package:otoku/model/pagemodel.dart';
 import 'package:otoku/pages/forum/viewmodel/forum.viewmodel.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/widgets/search.textfield.dart';
@@ -15,22 +15,21 @@ class forumscreen extends StatefulWidget {
 class _forumscreenState extends State<forumscreen> {
   @override
   Widget build(BuildContext context) {
-    return pagemodel(
-      AppBar: CustomAppBar(
-        height: 120,
+    return PageModel(
+      appBar: CustomAppBar(
         centerTitle: false,
-        autoleading: false,
-        backgroundColor: white,
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.white,
         title: Text(
           "OTOKU FORUM",
-          style:
-              TextStyle(fontFamily: "BlackOpsOne", fontSize: 30, color: orange),
+          style: TextStyle(
+              fontFamily: "BlackOpsOne", fontSize: 30, color: AppColors.orange),
         ),
-        preferredSizeWidget: PreferredSize(
+        bottom: PreferredSize(
             preferredSize: Size.fromHeight(50),
             child: searchtextfield(hinttext: 'Forumda arama yapın...')),
       ),
-      Widget: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

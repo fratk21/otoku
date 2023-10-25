@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyAegRx-ZDdxsWiVDn7CsXlw1ReeVQiGJyo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>896788246930</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.otoku.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>otoku-bbd4f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>otoku-bbd4f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:896788246930:ios:99d0f3a04da37a628e514b</string>
+</dict>
+</plist>

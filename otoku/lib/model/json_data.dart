@@ -61,23 +61,16 @@ final Map<String, dynamic> categoryData = {
           "subcategory_name": "Harem Manga",
           "subcategories": ["Harem", "Romantik", "Komedi", "Okul", "Drama"]
         },
-        // Diğer alt kategoriler buraya eklenebilir
       ]
     },
     {
       "category_name": "Çizgi Roman",
       "subcategories": [
-        {
-          "subcategory_name": "Çizgi Roman Yayınevleri",
-          "subcategories": [
-            "Marvel",
-            "DC Comics",
-            "Image Comics",
-            "Dark Horse Comics",
-            "Diğer yayınevleri"
-          ]
-        },
-        // Diğer alt kategoriler buraya eklenebilir
+        "Marvel",
+        "DC Comics",
+        "Image Comics",
+        "Dark Horse Comics",
+        "Diğer yayınevleri"
       ]
     },
     {
@@ -89,7 +82,6 @@ final Map<String, dynamic> categoryData = {
         {
           "subcategory_name": "Çizgi Roman Figürleri",
         },
-        // Diğer alt kategoriler buraya eklenebilir
       ]
     },
     {
@@ -101,8 +93,6 @@ final Map<String, dynamic> categoryData = {
         {
           "subcategory_name": "Çizgi Roman Karakterleri Cosplay Kostümleri",
         },
-
-        // Diğer alt kategoriler buraya eklenebilir
       ]
     },
     {
@@ -120,7 +110,6 @@ final Map<String, dynamic> categoryData = {
           "subcategory_name": "Unisex",
           "subcategories": ["Üst Giyim", "Alt Giyim", "Aksesuarlar"]
         },
-        // Diğer alt kategoriler buraya eklenebilir
       ]
     },
     {
@@ -134,9 +123,7 @@ final Map<String, dynamic> categoryData = {
           "subcategory_name": "Koleksiyonlar",
           "subcategories": ["Para, pul, kart koleksiyonları"]
         },
-        // Diğer alt kategoriler buraya eklenebilir
       ]
     },
-    // Diğer kategoriler buraya eklenebilir
   ]
 };

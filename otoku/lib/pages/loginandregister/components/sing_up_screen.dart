@@ -39,7 +39,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   Text(
                     'Sign up',
                     style: TextStyle(
-                      color: orange,
+                      color: AppColors.orange,
                       fontSize: 50,
                       fontFamily: 'BlackOpsOne',
                       fontWeight: FontWeight.w500,
@@ -62,7 +62,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       decoration: InputDecoration(
                         labelText: 'Name',
                         labelStyle: TextStyle(
-                          color: gblue,
+                          color: AppColors.gblue,
                           fontSize: 15,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
@@ -71,14 +71,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
                             width: 1,
-                            color: gblue,
+                            color: AppColors.gblue,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
                             width: 1,
-                            color: gblue,
+                            color: AppColors.gblue,
                           ),
                         ),
                       ),
@@ -101,7 +101,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: TextStyle(
-                          color: gblue,
+                          color: AppColors.gblue,
                           fontSize: 15,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
@@ -110,14 +110,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
                             width: 1,
-                            color: gblue,
+                            color: AppColors.gblue,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
                             width: 1,
-                            color: gblue,
+                            color: AppColors.gblue,
                           ),
                         ),
                       ),
@@ -150,7 +150,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               fontWeight: FontWeight.w400,
                             ),
                             labelStyle: TextStyle(
-                              color: gblue,
+                              color: AppColors.gblue,
                               fontSize: 15,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
@@ -168,7 +168,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
                                 width: 1,
-                                color: gblue,
+                                color: AppColors.gblue,
                               ),
                             ),
                           ),
@@ -199,7 +199,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               fontWeight: FontWeight.w400,
                             ),
                             labelStyle: TextStyle(
-                              color: gblue,
+                              color: AppColors.gblue,
                               fontSize: 15,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
@@ -217,7 +217,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                                   BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
                                 width: 1,
-                                color: gblue,
+                                color: AppColors.gblue,
                               ),
                             ),
                           ),
@@ -240,7 +240,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                               curve: Curves.ease);
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: orange,
+                          backgroundColor: AppColors.orange,
                         ),
                         child: const Text(
                           'Create account',
@@ -281,7 +281,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                         child: Text(
                           'Log In ',
                           style: TextStyle(
-                            color: orange,
+                            color: AppColors.orange,
                             fontSize: 13,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,

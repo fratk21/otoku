@@ -19,7 +19,7 @@ Widget customTextField({
       controller: controller,
       textAlign: TextAlign.start,
       style: TextStyle(
-        color: gblue,
+        color: AppColors.gblue,
         fontSize: 13,
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w400,
@@ -28,7 +28,7 @@ Widget customTextField({
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: TextStyle(
-          color: gblue,
+          color: AppColors.gblue,
           fontSize: 15,
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w600,
@@ -37,20 +37,20 @@ Widget customTextField({
           borderRadius: BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide(
             width: 1,
-            color: gblue,
+            color: AppColors.gblue,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           borderSide: BorderSide(
             width: 1,
-            color: gblue,
+            color: AppColors.gblue,
           ),
         ),
         prefixIcon: icon != null
             ? IconButton(
                 onPressed: onIconTap,
-                icon: Icon(icon, color: gblue),
+                icon: Icon(icon, color: AppColors.gblue),
               )
             : null,
       ),

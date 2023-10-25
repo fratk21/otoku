@@ -43,7 +43,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                   Text(
                     'Confirm the code\n',
                     style: TextStyle(
-                      color: orange,
+                      color: AppColors.orange,
                       fontSize: 25,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
@@ -56,7 +56,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     width: 329,
                     height: 56,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: gblue),
+                      border: Border.all(width: 1, color: AppColors.gblue),
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
                     child: Padding(
@@ -85,7 +85,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                               ));
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: orange,
+                          backgroundColor: AppColors.orange,
                         ),
                         child: const Text(
                           'confirm',
@@ -109,7 +109,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         'Resend  ',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: orange,
+                          color: AppColors.orange,
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
@@ -119,13 +119,13 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         spacerWidth: 0,
                         enableDescriptions: false,
                         colonsTextStyle: TextStyle(
-                          color: orange,
+                          color: AppColors.orange,
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,
                         ),
                         timeTextStyle: TextStyle(
-                          color: orange,
+                          color: AppColors.orange,
                           fontSize: 13,
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w400,

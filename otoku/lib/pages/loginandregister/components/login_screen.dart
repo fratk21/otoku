@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Log In',
                     style: TextStyle(
-                      color: orange,
+                      color: AppColors.orange,
                       fontSize: 50,
                       fontFamily: 'BlackOpsOne',
                       fontWeight: FontWeight.w500,
@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _emailController,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: gblue,
+                      color: AppColors.gblue,
                       fontSize: 13,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: gblue,
+                        color: AppColors.gblue,
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -66,14 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                     ),
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passController,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: gblue,
+                      color: AppColors.gblue,
                       fontSize: 13,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(
-                        color: gblue,
+                        color: AppColors.gblue,
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -102,14 +102,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: orange,
+                          backgroundColor: AppColors.orange,
                         ),
                         child: const Text(
                           'Sign In',
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
-                            color: orange,
+                            color: AppColors.orange,
                             fontSize: 13,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,
@@ -188,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'Forget Password?',
                       style: TextStyle(
-                        color: orange,
+                        color: AppColors.orange,
                         fontSize: 13,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/widgets/custombutton.dart';
 
 class ForgotpassScreen extends StatefulWidget {
   const ForgotpassScreen({
@@ -41,7 +42,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                   Text(
                     'Forgot Password',
                     style: TextStyle(
-                      color: orange,
+                      color: AppColors.orange,
                       fontSize: 50,
                       fontFamily: 'BlackOpsOne',
                       fontWeight: FontWeight.w500,
@@ -54,7 +55,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                     controller: _emailController,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: gblue,
+                      color: AppColors.gblue,
                       fontSize: 13,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400,
@@ -62,7 +63,7 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                     decoration: InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: gblue,
+                        color: AppColors.gblue,
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -71,14 +72,14 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: gblue,
+                          color: AppColors.gblue,
                         ),
                       ),
                     ),
@@ -86,27 +87,14 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                   const SizedBox(
                     height: 25,
                   ),
-                  ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    child: SizedBox(
-                      width: 329,
-                      height: 56,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: orange,
-                        ),
-                        child: const Text(
-                          'Go Go',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
+                  customButton(
+                    context: context,
+                    text: 'Özel Buton',
+                    // İkon eklemek için
+                    onPressed: () {
+                      // Butona tıklanınca çalışacak işlem
+                      print("object");
+                    },
                   ),
                   const SizedBox(
                     height: 15,

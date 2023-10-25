@@ -51,12 +51,15 @@ dependencies:
   provider: ^6.0.5
   #navigator
   stylish_bottom_bar: ^1.0.3
-  #veritabanı
-  sqflite: ^2.3.0
+  #timer
+
   flutter_timer_countdown: ^1.0.5
   #border
   dotted_border: ^2.1.0
+  #imagepicker
   image_picker: ^1.0.4
+  #connectivity
+  connectivity_plus: ^5.0.1
 
 dev_dependencies:
   flutter_test:
