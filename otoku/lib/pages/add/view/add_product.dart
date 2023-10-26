@@ -59,7 +59,7 @@ class _add_product_screenState extends State<add_product_screen> {
                 labelText: 'Product Name',
                 icon: Icons.apps,
                 onIconTap: () {},
-                maxlength: 50),
+                maxLength: 50),
             customTextField(
                 labelText: 'Product Description',
                 icon: Icons.description,

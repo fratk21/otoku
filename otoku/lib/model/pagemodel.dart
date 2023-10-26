@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/utils/imageclass.dart';
 import 'package:otoku/utils/pading.dart';
 
 class PageModel extends StatefulWidget {
@@ -23,9 +24,9 @@ class _PageModelState extends State<PageModel> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.white, // Sayfa rengi burada belirlendi
+        backgroundColor: AppColors.white,
         appBar: widget.appBar,
-        body: CustomPadding(child: widget.body),
+        body: SingleChildScrollView(child: CustomPadding(child: widget.body)),
         floatingActionButton: widget.floatingActionButton,
       ),
     );

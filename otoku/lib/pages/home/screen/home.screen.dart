@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/model/json_data.dart';
@@ -35,12 +33,12 @@ class _homescreenState extends State<homescreen>
     _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
-    )..repeat(); // Animasyonu sürekli olarak tekrarlayın.
+    )..repeat();
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Sayfa kapatıldığında controller'ı temizleyin.
+    _controller.dispose();
     super.dispose();
   }
 

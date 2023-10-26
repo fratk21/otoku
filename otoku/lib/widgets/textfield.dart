@@ -2,21 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:otoku/utils/colors.dart';
 
-Widget customTextField({
-  TextEditingController? controller,
-  String? labelText,
-  IconData? icon,
-  void Function()? onIconTap,
-  int maxLines = 1,
-  int? maxlength,
-}) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: TextField(
+class customTextField extends StatefulWidget {
+  final TextEditingController? controller;
+  final String? labelText;
+  final IconData? icon;
+  final void Function()? onIconTap;
+  final bool isPassword;
+  final int maxLines;
+  final int? maxLength;
+
+  customTextField({
+    this.controller,
+    this.labelText,
+    this.icon,
+    this.onIconTap,
+    this.isPassword = false,
+    this.maxLines = 1,
+    this.maxLength,
+  });
+
+  @override
+  _customTextFieldState createState() => _customTextFieldState();
+}
+
+class _customTextFieldState extends State<customTextField> {
+  late bool isPassword;
+
+  @override
+  void initState() {
+    super.initState();
+    isPassword = widget.isPassword;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
       inputFormatters: [
-        LengthLimitingTextInputFormatter(maxlength),
+        LengthLimitingTextInputFormatter(widget.maxLength),
       ],
-      controller: controller,
+      controller: widget.controller,
       textAlign: TextAlign.start,
       style: TextStyle(
         color: AppColors.gblue,
@@ -24,9 +48,10 @@ Widget customTextField({
         fontFamily: 'Poppins',
         fontWeight: FontWeight.w400,
       ),
-      maxLines: maxLines, // Satır sayısını ayarlayın
+      maxLines: widget.maxLines,
+      obscureText: isPassword,
       decoration: InputDecoration(
-        labelText: labelText,
+        labelText: widget.labelText,
         labelStyle: TextStyle(
           color: AppColors.gblue,
           fontSize: 15,
@@ -47,17 +72,24 @@ Widget customTextField({
             color: AppColors.gblue,
           ),
         ),
-        prefixIcon: icon != null
+        prefixIcon: widget.icon != null
             ? IconButton(
-                onPressed: onIconTap,
-                icon: Icon(icon, color: AppColors.gblue),
+                onPressed: widget.onIconTap,
+                icon: Icon(widget.icon, color: AppColors.gblue),
+              )
+            : null,
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    isPassword = !isPassword;
+                  });
+                },
+                icon: Icon(isPassword ? Icons.visibility_off : Icons.visibility,
+                    color: AppColors.gblue),
               )
             : null,
       ),
-    ),
-  );
+    );
+  }
 }
-
-
-// Kullanım örneği:
-// customTextField(controller: _passController, labelText: 'Password', icon: Icons.lock, onIconTap: () { /* Icon tıklandığında yapılacak işlem */ })

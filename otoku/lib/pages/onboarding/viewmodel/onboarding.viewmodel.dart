@@ -35,9 +35,8 @@ Widget customCard({
                 ),
                 maxLines: 2),
             sizedBoxH(5),
-            // Metinler arasına boşluk ekleyin
             Container(
-                width: 200, // Metin kutusu genişliğini ayarlayın
+                width: 200,
                 child: CustomText(
                     text: description,
                     style: TextStyle(
