@@ -38,7 +38,7 @@ class _profilescreenState extends State<profilescreen>
   List<String> values = ["29", "121.9k", "15"];
   @override
   Widget build(BuildContext context) {
-    return PageModel(
+    return Scaffold(
         appBar: _buildAppBar("Jenny Wilson"),
         body: Column(
           children: [

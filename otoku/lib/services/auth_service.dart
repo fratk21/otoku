@@ -56,11 +56,12 @@ class AuthService {
     await user?.sendEmailVerification();
   }
 
-  Future<void> resetPassword(String email) async {
+  Future<String?> resetPassword(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
+      return null;
     } catch (e) {
-      print('Şifre sıfırlama hatası: $e');
+      return e.toString();
     }
   }
 }

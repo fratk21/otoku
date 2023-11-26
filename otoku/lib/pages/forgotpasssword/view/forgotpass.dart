@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:otoku/services/auth_service.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/utils/showsnackbar.dart';
 import 'package:otoku/widgets/custombutton.dart';
 
 class ForgotpassScreen extends StatefulWidget {
@@ -13,7 +15,6 @@ class ForgotpassScreen extends StatefulWidget {
 
 class _ForgotpassScreenState extends State<ForgotpassScreen> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +90,17 @@ class _ForgotpassScreenState extends State<ForgotpassScreen> {
                   ),
                   customButton(
                     context: context,
-                    text: 'Özel Buton',
-                    // İkon eklemek için
-                    onPressed: () {
-                      // Butona tıklanınca çalışacak işlem
+                    text: 'Şifre sıfırlama Linki gönder',
+                    onPressed: () async {
+                      String? resetpasscontrol = await AuthService()
+                          .resetPassword(_emailController.text);
+                      if (resetpasscontrol == null) {
+                        showSnackBar(context, AppColors.orange,
+                            "Emailinizi kontrol ediniz");
+                      } else {
+                        showSnackBar(
+                            context, AppColors.errorcolors, resetpasscontrol);
+                      }
                       print("object");
                     },
                   ),

@@ -1,24 +1,24 @@
 import 'dart:typed_data';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:otoku/utils/colors.dart';
-import 'package:otoku/widgets/appbarmodel.dart';
-import 'package:otoku/widgets/customdropdown.dart';
-import 'package:otoku/model/pagemodel.dart';
+import 'package:otoku/widgets/custombutton.dart';
+import 'package:otoku/widgets/sizedbox.dart';
 import 'package:otoku/widgets/textfield.dart';
 
-class add_product_screen extends StatefulWidget {
-  const add_product_screen({super.key});
+class addForum extends StatefulWidget {
+  const addForum({super.key});
 
   @override
-  State<add_product_screen> createState() => _add_product_screenState();
+  State<addForum> createState() => _addForumState();
 }
 
-class _add_product_screenState extends State<add_product_screen> {
-  List<Uint8List?> containerImages = List.generate(8, (_) => null);
+class _addForumState extends State<addForum> {
+  List<Uint8List?> containerImages = List.generate(3, (_) => null);
   String selectedValue = 'New';
-
+  String selectedOption = '';
   Future<void> pickImage(int index) async {
     final imagePicker = ImagePicker();
     final im = await pickImageFromSource(imagePicker, ImageSource.gallery);
@@ -46,35 +46,38 @@ class _add_product_screenState extends State<add_product_screen> {
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
-      appBar: CustomAppBar(),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            buildGridOfDottedContainersWithFunction(2, 3, (index) {
-              pickImage(index);
-            }),
-            customTextField(
-                labelText: 'Product Name',
-                icon: Icons.apps,
-                onIconTap: () {},
-                maxLength: 50),
-            customTextField(
-                labelText: 'Product Description',
-                icon: Icons.description,
-                onIconTap: () {},
-                maxLines: 5),
-            AnimatedDropdown(
-              dropdownItems: ['Seçiniz', 'Öğe 1', 'Öğe 2', 'Öğe 3'],
-              onChanged: (String selectedValue) {
-                print('Seçilen öğe: $selectedValue');
-              },
-              label: "Durum",
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              buildGridOfDottedContainersWithFunction(1, 3, (index) {
+                pickImage(index);
+              }),
+              sizedBoxH(10),
+              customTextField(
+                  labelText: 'Forum Konusu',
+                  icon: Icons.apps,
+                  onIconTap: () {},
+                  maxLength: 50),
+              sizedBoxH(10),
+              customTextField(
+                  labelText: 'İçerik',
+                  icon: Icons.description,
+                  onIconTap: () {},
+                  maxLines: 10),
+              sizedBoxH(10),
+              customButton(
+                context: context,
+                text: "Ekle",
+                onPressed: () {},
+              )
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:otoku/model/pagemodel.dart';
+import 'package:otoku/services/auth_service.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/utils/imageclass.dart';
+import 'package:otoku/utils/showsnackbar.dart';
 import 'package:otoku/widgets/custombutton.dart';
 import 'package:otoku/widgets/sizedbox.dart';
 import 'package:otoku/widgets/textfield.dart';
@@ -90,10 +92,29 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 width: 2,
                 context: context,
                 text: 'Create account',
-                onPressed: () {
-                  widget.controller.animateToPage(2,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.ease);
+                onPressed: () async {
+                  if (_emailController.text.isNotEmpty &&
+                      _passController.text.isNotEmpty) {
+                    if (_passController.text == _repassController.text) {
+                      String? registercontrol = await AuthService()
+                          .registerWithEmailAndPassword(
+                              _emailController.text, _passController.text);
+                      if (registercontrol == null) {
+                        widget.controller.animateToPage(2,
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.ease);
+                      } else {
+                        showSnackBar(
+                            context, AppColors.errorcolors, registercontrol);
+                      }
+                    } else {
+                      showSnackBar(context, AppColors.errorcolors,
+                          "Şİfreler Aynı Değil");
+                    }
+                  } else {
+                    showSnackBar(context, AppColors.errorcolors,
+                        "Lütfen Tüm Alanları Doldurunuz");
+                  }
                 },
               ),
               sizedBoxH(15),

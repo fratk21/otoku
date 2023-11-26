@@ -3,96 +3,35 @@ final Map<String, dynamic> categoryData = {
     {
       "category_name": "Manga",
       "subcategories": [
-        {
-          "subcategory_name": "Shounen Manga",
-          "subcategories": [
-            "Aksiyon",
-            "Macera",
-            "Komedi",
-            "Drama",
-            "Fantastik",
-            "Spor",
-            "Bilim Kurgu",
-            "Doğaüstü Güçler"
-          ]
-        },
-        {
-          "subcategory_name": "Shoujo Manga",
-          "subcategories": [
-            "Romantik",
-            "Okul",
-            "Dram",
-            "Fantastik",
-            "Kız Karakterler Odaklı"
-          ]
-        },
-        {
-          "subcategory_name": "Seinen Manga",
-          "subcategories": [
-            "Yetişkin",
-            "Psikolojik",
-            "Gizem",
-            "Bilim Kurgu",
-            "Korku",
-            "Doğaüstü Güçler"
-          ]
-        },
-        {
-          "subcategory_name": "Josei Manga",
-          "subcategories": [
-            "Romantik",
-            "Yetişkin",
-            "Dram",
-            "Keskin Yaşam",
-            "Psikolojik"
-          ]
-        },
-        {
-          "subcategory_name": "Kodomo Manga",
-          "subcategories": [
-            "Çocuklar İçin",
-            "Eğitim",
-            "Komedi",
-            "Macera",
-            "Bilim Kurgu"
-          ]
-        },
-        {
-          "subcategory_name": "Harem Manga",
-          "subcategories": ["Harem", "Romantik", "Komedi", "Okul", "Drama"]
-        },
+        {"subcategory_name": "Shounen Manga"},
+        {"subcategory_name": "Shoujo Manga"},
+        {"subcategory_name": "Seinen Manga"},
+        {"subcategory_name": "Josei Manga"},
+        {"subcategory_name": "Kodomo Manga"},
       ]
     },
     {
       "category_name": "Çizgi Roman",
       "subcategories": [
-        "Marvel",
-        "DC Comics",
-        "Image Comics",
-        "Dark Horse Comics",
-        "Diğer yayınevleri"
+        {"subcategory_name": "Marvel"},
+        {"subcategory_name": "DC Comics"},
+        {"subcategory_name": "Image Comics"},
+        {"subcategory_name": "Dark Horse Comics"},
+        {"subcategory_name": "Diğer yayınevleri"},
       ]
     },
     {
       "category_name": "Figür",
       "subcategories": [
-        {
-          "subcategory_name": "Anime Figürleri",
-        },
-        {
-          "subcategory_name": "Çizgi Roman Figürleri",
-        },
+        {"subcategory_name": "Anime Figürleri"},
+        {"subcategory_name": "Çizgi Roman Figürleri"},
       ]
     },
     {
       "category_name": "Cosplay Kıyafetleri",
       "subcategories": [
-        {
-          "subcategory_name": "Anime Karakterleri Cosplay Kostümleri",
-        },
-        {
-          "subcategory_name": "Çizgi Roman Karakterleri Cosplay Kostümleri",
-        },
+        {"subcategory_name": "Anime Karakterleri Cosplay Kostümleri"},
+        {"subcategory_name": "Çizgi Roman Karakterleri Cosplay Kostümleri"},
       ]
     },
     {
@@ -100,15 +39,12 @@ final Map<String, dynamic> categoryData = {
       "subcategories": [
         {
           "subcategory_name": "Erkek",
-          "subcategories": ["Üst Giyim", "Alt Giyim", "Aksesuarlar"]
         },
         {
           "subcategory_name": "Kadın",
-          "subcategories": ["Üst Giyim", "Alt Giyim", "Aksesuarlar"]
         },
         {
           "subcategory_name": "Unisex",
-          "subcategories": ["Üst Giyim", "Alt Giyim", "Aksesuarlar"]
         },
       ]
     },
@@ -117,11 +53,9 @@ final Map<String, dynamic> categoryData = {
       "subcategories": [
         {
           "subcategory_name": "El Sanatları",
-          "subcategories": ["Kendi el yapımı ürünler"]
         },
         {
           "subcategory_name": "Koleksiyonlar",
-          "subcategories": ["Para, pul, kart koleksiyonları"]
         },
       ]
     },

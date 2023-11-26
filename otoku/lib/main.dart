@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/firebase_options.dart';
 
 import 'package:otoku/navigator.dart';
+import 'package:otoku/pages/add/addProduct/view/add_product.dart';
 import 'package:otoku/pages/loginandregister/view/main_view.dart';
 import 'package:otoku/pages/onboarding/screen/onboarding.screen.dart';
 import 'package:otoku/provider/locationprovider.dart';
@@ -35,7 +37,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MainView(),
+      home: FirebaseAuth.instance.currentUser?.uid == null
+          ? MainView()
+          : navigatorscreen(),
     );
   }
 }

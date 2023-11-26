@@ -15,7 +15,7 @@ class forumscreen extends StatefulWidget {
 class _forumscreenState extends State<forumscreen> {
   @override
   Widget build(BuildContext context) {
-    return PageModel(
+    return Scaffold(
       appBar: CustomAppBar(
         centerTitle: false,
         automaticallyImplyLeading: false,

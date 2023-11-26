@@ -55,7 +55,7 @@ class ChatroomState extends State<Chatroom> {
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Chat Odası'),
         ),

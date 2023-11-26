@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/model/pagemodel.dart';
+import 'package:otoku/navigator.dart';
 import 'package:otoku/pages/forgotpasssword/view/forgotpass.dart';
+import 'package:otoku/services/auth_service.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/utils/imageclass.dart';
+import 'package:otoku/utils/pageroutes.dart';
+import 'package:otoku/utils/showsnackbar.dart';
 import 'package:otoku/widgets/custombutton.dart';
 import 'package:otoku/widgets/sizedbox.dart';
 import 'package:otoku/widgets/textfield.dart';
@@ -67,7 +71,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 2,
                 context: context,
                 text: 'Sign In',
-                onPressed: () {},
+                onPressed: () async {
+                  if (_emailController.text.isNotEmpty &&
+                      _passController.text.isNotEmpty) {
+                    String? logincontrol = await AuthService()
+                        .signInWithEmailAndPassword(
+                            _emailController.text, _passController.text);
+                    if (logincontrol == null) {
+                      PageNavigator.push(context, navigatorscreen());
+                    } else {
+                      showSnackBar(
+                          context, AppColors.errorcolors, logincontrol);
+                    }
+                  } else {
+                    showSnackBar(context, AppColors.errorcolors,
+                        "Lütfen Boş Alanları Doldurunuz");
+                  }
+                },
               ),
               sizedBoxH(15),
               Row(

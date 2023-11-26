@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/model/json_data.dart';
-import 'package:otoku/pages/add/view/selectmaincategory.dart';
+import 'package:otoku/pages/add/addProduct/view/selectmaincategory.dart';
 import 'package:otoku/utils/pageroutes.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
 import 'package:otoku/model/pagemodel.dart';
@@ -124,18 +124,6 @@ Widget _categorys(BuildContext context) {
         category(
           function: () {
             final Map<String, dynamic>? foundCategory =
-                findCategoryByName("Cosplay Kıyafetleri");
-            categorycontrol(foundCategory, context);
-          },
-          image: "assets/image/cosplay.png",
-          name: "Cosplay",
-        ),
-        SizedBox(
-          width: 30,
-        ),
-        category(
-          function: () {
-            final Map<String, dynamic>? foundCategory =
                 findCategoryByName("Gündelik Kıyafetler");
             categorycontrol(foundCategory, context);
           },
@@ -175,7 +163,12 @@ Map<String, dynamic>? findCategoryByName(String categoryNameToFind) {
 
 void categorycontrol(foundCategory, BuildContext context) {
   if (foundCategory != null) {
-    PageNavigator.push(context, SubCategoriesPage(category: foundCategory));
+    PageNavigator.push(
+        context,
+        SubCategoriesPage(
+          category: foundCategory,
+          add: false,
+        ));
   } else {
     print('Kategori bulunamadı.');
   }

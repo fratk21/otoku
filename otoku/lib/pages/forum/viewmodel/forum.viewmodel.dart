@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:otoku/pages/forum/screen/topic.screen.dart';
+import 'package:otoku/utils/pageroutes.dart';
 
 class ForumTopic extends StatelessWidget {
   final IconData icon;
@@ -20,8 +22,7 @@ class ForumTopic extends StatelessWidget {
       title: Text(title),
       subtitle: Text('Açan: $author - Tarih: $date'),
       onTap: () {
-        // Konu tıklanınca yapılacak işlemler buraya eklenir
-        // Örneğin, konuyu göstermek için yeni bir sayfa açabilirsiniz.
+        PageNavigator.push(context, ForumTopicScreen());
       },
     );
   }
@@ -54,10 +55,7 @@ class ForumSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             TextButton(
-              onPressed: () {
-                // Daha fazla göster butonuna tıklandığında yapılacak işlemler buraya eklenir
-                // Örneğin, daha fazla konu yüklemek için bir işlem yapabilirsiniz.
-              },
+              onPressed: () {},
               child: Text('Daha Fazla Göster'),
             ),
           ],

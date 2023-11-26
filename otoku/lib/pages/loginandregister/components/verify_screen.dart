@@ -1,8 +1,18 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
+import 'package:otoku/navigator.dart';
 import 'package:otoku/pages/loginandregister/viewmodel/otp_form.dart';
 import 'package:otoku/pages/onboarding/screen/onboarding.screen.dart';
+import 'package:otoku/services/user_service.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/utils/pageroutes.dart';
+import 'package:otoku/utils/showsnackbar.dart';
+import 'package:otoku/widgets/custombutton.dart';
+import 'package:otoku/widgets/indicator.dart';
+import 'package:otoku/widgets/sizedbox.dart';
 
 class VerifyScreen extends StatefulWidget {
   const VerifyScreen({super.key, required this.controller});
@@ -12,7 +22,42 @@ class VerifyScreen extends StatefulWidget {
 }
 
 class _VerifyScreenState extends State<VerifyScreen> {
-  String? varifyCode;
+  bool varifytime = false;
+  bool isEmailVerified = false;
+  Timer? timer;
+  UserService auth = UserService();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseAuth.instance.currentUser?.sendEmailVerification();
+    timer =
+        Timer.periodic(const Duration(seconds: 3), (_) => checkEmailVerified());
+  }
+
+  checkEmailVerified() async {
+    await FirebaseAuth.instance.currentUser?.reload();
+
+    setState(() {
+      isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
+    });
+
+    if (isEmailVerified) {
+      // TODO: implement your code after email verification
+      showSnackBar(context, AppColors.orange, "Email Onaylandı");
+
+      timer?.cancel();
+      Future.delayed(Duration(milliseconds: 100));
+      PageNavigator.push(context, navigatorscreen());
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +86,10 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Confirm the code\n',
+                    'Onaylama kodu ${auth.getCurrentUser()!.email} \nadresine gönderildi',
                     style: TextStyle(
                       color: AppColors.orange,
-                      fontSize: 25,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600,
                     ),
@@ -52,56 +97,8 @@ class _VerifyScreenState extends State<VerifyScreen> {
                   const SizedBox(
                     height: 16,
                   ),
-                  Container(
-                    width: 329,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: AppColors.gblue),
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 60),
-                      child: OtpForm(
-                        callBack: (code) {
-                          varifyCode = code;
-                        },
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    child: SizedBox(
-                      width: 329,
-                      height: 56,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => onboarding(),
-                              ));
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.orange,
-                        ),
-                        child: const Text(
-                          'confirm',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  CustomProgressIndicator(),
+                  sizedBoxH(10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -133,37 +130,36 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         format: CountDownTimerFormat.minutesSeconds,
                         endTime: DateTime.now().add(
                           const Duration(
-                            minutes: 2,
+                            minutes: 3,
                             seconds: 0,
                           ),
                         ),
-                        onEnd: () {},
+                        onEnd: () {
+                          setState(() {
+                            varifytime = true;
+                          });
+                        },
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 37,
+                  sizedBoxH(10),
+                  customButton(
+                    context: context,
+                    text: "Tekrar Gönder",
+                    height: 0.06,
+                    onPressed: () {
+                      if (varifytime) {
+                        FirebaseAuth.instance.currentUser
+                            ?.sendEmailVerification();
+                        timer = Timer.periodic(const Duration(seconds: 3),
+                            (_) => checkEmailVerified());
+                      } else {
+                        showSnackBar(context, AppColors.errorcolors,
+                            "Lütfen sürenin bitmesini bekleyiniz");
+                      }
+                    },
                   ),
                 ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: InkWell(
-                onTap: () {
-                  widget.controller.animateToPage(1,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.ease);
-                },
-                child: const Text(
-                  'A 6-digit verification code has been sent to info@aidendesign.com',
-                  style: TextStyle(
-                    color: Color(0xFF837E93),
-                    fontSize: 11,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
               ),
             ),
           ],

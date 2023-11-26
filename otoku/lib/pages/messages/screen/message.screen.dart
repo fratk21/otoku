@@ -36,12 +36,13 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
+    return Scaffold(
         appBar: AppBar(
           title: Text('Chat'),
           automaticallyImplyLeading: false,
         ),
         body: ListView.builder(
+          shrinkWrap: true,
           itemCount: messages.length,
           itemBuilder: (BuildContext context, int index) {
             return MessageBubble(message: messages[index]);

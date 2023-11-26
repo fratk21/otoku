@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otoku/pages/add/view/add_product.dart';
-import 'package:otoku/pages/add/view/selectmaincategory.dart';
+import 'package:otoku/pages/add/addForum/view/addForum.dart';
+import 'package:otoku/pages/add/addMessage/screen/AddMessage.dart';
+import 'package:otoku/pages/add/addProduct/view/add_product.dart';
+import 'package:otoku/pages/add/addProduct/view/selectmaincategory.dart';
 import 'package:otoku/pages/forum/screen/forum.screen.dart';
 import 'package:otoku/pages/home/screen/home.screen.dart';
 import 'package:otoku/pages/messages/screen/message.screen.dart';
 import 'package:otoku/pages/profile/view/profile.dart';
+import 'package:otoku/pages/settings/screen/settings.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/utils/pageroutes.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -50,7 +53,17 @@ class _navigatorscreenState extends State<navigatorscreen> {
         });
       }),
       floatingActionButton: buildFloatingActionButton(fabContent, () {
-        PageNavigator.push(context, MainCategoriesPage());
+        PageNavigator.push(
+            context,
+            selectedIndex == 0
+                ? MainCategoriesPage()
+                : selectedIndex == 1
+                    ? addForum()
+                    : selectedIndex == 2
+                        ? AddmessageScreen()
+                        : selectedIndex == 3
+                            ? Settingscreen()
+                            : addForum());
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
@@ -81,7 +94,7 @@ class _navigatorscreenState extends State<navigatorscreen> {
   List<Widget> _listOfWidget = <Widget>[
     const homescreen(),
     const forumscreen(),
-    messagesscreen(),
+    const messagesscreen(),
     const profilescreen(),
   ];
 
