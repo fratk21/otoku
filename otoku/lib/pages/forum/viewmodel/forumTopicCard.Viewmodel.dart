@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:otoku/pages/profile/view/profile.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/utils/pageroutes.dart';
+import 'package:random_avatar/random_avatar.dart';
 
 class ForumTopicCard extends StatelessWidget {
   final String profileImageUrl;
@@ -7,6 +10,7 @@ class ForumTopicCard extends StatelessWidget {
   final String date;
   final String? title;
   final String content;
+  final String uid;
 
   ForumTopicCard({
     required this.profileImageUrl,
@@ -14,6 +18,7 @@ class ForumTopicCard extends StatelessWidget {
     required this.date,
     this.title,
     required this.content,
+    required this.uid,
   });
 
   @override
@@ -31,10 +36,11 @@ class ForumTopicCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundImage: NetworkImage(profileImageUrl),
-                ),
+                InkWell(
+                    onTap: () {
+                      PageNavigator.push(context, profilescreen(uid: uid));
+                    },
+                    child: RandomAvatar(profileImageUrl, height: 50)),
                 SizedBox(width: 8),
                 Text(
                   username,
@@ -58,10 +64,12 @@ class ForumTopicCard extends StatelessWidget {
                   )
                 : Container(),
             title != null ? SizedBox(height: 16) : SizedBox(height: 1),
-            Text(
-              content,
-              style: TextStyle(fontSize: 16),
-            ),
+            content != "null"
+                ? Text(
+                    content,
+                    style: TextStyle(fontSize: 16),
+                  )
+                : Container()
           ],
         ),
       ),

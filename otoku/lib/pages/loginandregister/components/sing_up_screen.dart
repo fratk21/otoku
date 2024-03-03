@@ -97,8 +97,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       _passController.text.isNotEmpty) {
                     if (_passController.text == _repassController.text) {
                       String? registercontrol = await AuthService()
-                          .registerWithEmailAndPassword(
-                              _emailController.text, _passController.text);
+                          .registerWithEmailAndPassword(_emailController.text,
+                              _passController.text, _nameController.text);
                       if (registercontrol == null) {
                         widget.controller.animateToPage(2,
                             duration: const Duration(milliseconds: 500),

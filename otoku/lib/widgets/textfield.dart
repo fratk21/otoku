@@ -10,6 +10,7 @@ class customTextField extends StatefulWidget {
   final bool isPassword;
   final int maxLines;
   final int? maxLength;
+  TextInputType? textInputType;
 
   customTextField({
     this.controller,
@@ -19,6 +20,7 @@ class customTextField extends StatefulWidget {
     this.isPassword = false,
     this.maxLines = 1,
     this.maxLength,
+    this.textInputType,
   });
 
   @override
@@ -37,6 +39,9 @@ class _customTextFieldState extends State<customTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: widget.textInputType == null
+          ? TextInputType.text
+          : widget.textInputType,
       inputFormatters: [
         LengthLimitingTextInputFormatter(widget.maxLength),
       ],

@@ -3,7 +3,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:group_radio_button/group_radio_button.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:otoku/pages/add/addProduct/services/services.dart';
 import 'package:otoku/utils/colors.dart';
+import 'package:otoku/utils/pageroutes.dart';
+import 'package:otoku/utils/showsnackbar.dart';
 import 'package:otoku/widgets/appbarmodel.dart';
 import 'package:otoku/widgets/custombutton.dart';
 import 'package:otoku/widgets/customdropdown.dart';
@@ -27,6 +30,10 @@ class add_product_screen extends StatefulWidget {
 }
 
 class _add_product_screenState extends State<add_product_screen> {
+  TextEditingController productName = TextEditingController();
+  TextEditingController productDes = TextEditingController();
+  TextEditingController productMoney = TextEditingController();
+
   List<Uint8List?> containerImages = List.generate(8, (_) => null);
   String selectedValue = 'New';
   String selectedOption = '';
@@ -38,6 +45,7 @@ class _add_product_screenState extends State<add_product_screen> {
         containerImages[index] = im;
       });
     }
+    print(containerImages);
   }
 
   Future<Uint8List?> pickImageFromSource(
@@ -80,15 +88,26 @@ class _add_product_screenState extends State<add_product_screen> {
                 sizedBoxH(10),
                 customTextField(
                     labelText: 'Product Name',
+                    controller: productName,
                     icon: Icons.apps,
                     onIconTap: () {},
                     maxLength: 50),
                 sizedBoxH(10),
                 customTextField(
                     labelText: 'Product Description',
+                    controller: productDes,
                     icon: Icons.description,
                     onIconTap: () {},
                     maxLines: 5),
+                sizedBoxH(10),
+                customTextField(
+                  labelText: 'Ücret',
+                  controller: productMoney,
+                  icon: Icons.money,
+                  onIconTap: () {},
+                  maxLines: 1,
+                  textInputType: TextInputType.number,
+                ),
                 sizedBoxH(10),
                 CustomText(
                   text: "Durum",
@@ -113,7 +132,21 @@ class _add_product_screenState extends State<add_product_screen> {
                 customButton(
                   context: context,
                   text: "Ekle",
-                  onPressed: () {},
+                  onPressed: () async {
+                    addproductservicesControl(
+                        context,
+                        productName.text,
+                        productDes.text,
+                        productMoney.text,
+                        selectedOption,
+                        containerImages,
+                        widget.category['category_name'],
+                        widget.subcategory);
+                    showSnackBar(context, AppColors.rose,
+                        "ürün birazdan sisteme eklenecektir");
+                    Future.delayed(Duration(milliseconds: 1000));
+                    PageNavigator.pop(context);
+                  },
                 )
               ],
             ),

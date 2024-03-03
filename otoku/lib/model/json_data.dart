@@ -28,13 +28,6 @@ final Map<String, dynamic> categoryData = {
       ]
     },
     {
-      "category_name": "Cosplay Kıyafetleri",
-      "subcategories": [
-        {"subcategory_name": "Anime Karakterleri Cosplay Kostümleri"},
-        {"subcategory_name": "Çizgi Roman Karakterleri Cosplay Kostümleri"},
-      ]
-    },
-    {
       "category_name": "Gündelik Kıyafetler",
       "subcategories": [
         {

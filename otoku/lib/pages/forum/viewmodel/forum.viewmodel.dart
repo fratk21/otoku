@@ -7,13 +7,15 @@ class ForumTopic extends StatelessWidget {
   final String title;
   final String author;
   final String date;
-
-  ForumTopic({
-    required this.icon,
-    required this.title,
-    required this.author,
-    required this.date,
-  });
+  final doc;
+  final user;
+  ForumTopic(
+      {required this.icon,
+      required this.title,
+      required this.author,
+      required this.date,
+      required this.doc,
+      required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,12 @@ class ForumTopic extends StatelessWidget {
       title: Text(title),
       subtitle: Text('Açan: $author - Tarih: $date'),
       onTap: () {
-        PageNavigator.push(context, ForumTopicScreen());
+        PageNavigator.push(
+            context,
+            ForumTopicScreen(
+              doc: doc,
+              user: user,
+            ));
       },
     );
   }
@@ -30,7 +37,7 @@ class ForumTopic extends StatelessWidget {
 
 class ForumSection extends StatelessWidget {
   final String title;
-  final List<Widget> topics;
+  final List<ForumTopic> topics;
 
   ForumSection({
     required this.title,
@@ -39,6 +46,14 @@ class ForumSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<ForumTopic> uniqueTopics = [];
+
+    for (var topic in topics) {
+      if (!uniqueTopics.any((t) => t.title == topic.title)) {
+        uniqueTopics.add(topic);
+      }
+    }
+
     return Column(
       children: [
         ListTile(
@@ -50,16 +65,7 @@ class ForumSection extends StatelessWidget {
             ),
           ),
         ),
-        ...topics, // Konuları listeye ekler
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TextButton(
-              onPressed: () {},
-              child: Text('Daha Fazla Göster'),
-            ),
-          ],
-        ),
+        ...uniqueTopics, // Tekrar etmeyen konuları listeye ekler
       ],
     );
   }

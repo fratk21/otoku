@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:otoku/utils/colors.dart';
-import 'package:otoku/utils/imageclass.dart';
 import 'package:otoku/utils/pading.dart';
 
 class PageModel extends StatefulWidget {

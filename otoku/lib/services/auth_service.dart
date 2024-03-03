@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:random_avatar/random_avatar.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String _mapFirebaseErrorToMessage(e) {
     switch (e.code) {
       case "weak-password":
@@ -21,13 +23,59 @@ class AuthService {
   }
 
   Future<String?> registerWithEmailAndPassword(
-      String email, String password) async {
+    String email,
+    String password,
+    String displayName,
+  ) async {
     try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      // Firebase Authentication ile kullanıcı oluştur
+      var authResult = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      String svgCode = RandomAvatarString('saytoonz');
+      // Firestore'a kullanıcı bilgilerini kaydet
+      await _firestore.collection('users').doc(authResult.user!.uid).set({
+        'username': displayName,
+        "uid": authResult.user!.uid,
+        "photoUrl": svgCode,
+        'email': email,
+        'favorites': [],
+        'followers': [],
+        'following': [],
+      });
+
       return null;
     } catch (e) {
       return _mapFirebaseErrorToMessage(e);
+    }
+  }
+
+  Future<String?> changePassword(String oldPassword, String newPassword) async {
+    User user = FirebaseAuth.instance.currentUser!;
+    AuthCredential credential =
+        EmailAuthProvider.credential(email: user.email!, password: oldPassword);
+
+    Map<String, String?> codeResponses = {
+      // Re-auth responses
+      "user-mismatch": null,
+      "user-not-found": null,
+      "invalid-credential": null,
+      "invalid-email": null,
+      "wrong-password": null,
+      "invalid-verification-code": null,
+      "invalid-verification-id": null,
+      // Update password error codes
+      "weak-password": null,
+      "requires-recent-login": null
+    };
+
+    try {
+      await user.reauthenticateWithCredential(credential);
+      await user.updatePassword(newPassword);
+      return null;
+    } on FirebaseAuthException catch (error) {
+      return codeResponses[error.code] ?? "Unknown";
     }
   }
 

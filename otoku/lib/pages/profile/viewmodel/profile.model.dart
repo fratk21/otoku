@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:otoku/utils/colors.dart';
 import 'package:otoku/widgets/sizedbox.dart';
 import 'package:otoku/widgets/textmodels.dart';
+import 'package:random_avatar/random_avatar.dart';
 
 Widget createStatCard({String value = "", String label = ""}) {
   return Column(
@@ -30,10 +31,7 @@ Widget createUserProfileCard(String image, String username) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      CircleAvatar(
-        backgroundImage: AssetImage(image),
-        radius: 70.0,
-      ),
+      RandomAvatar(image, height: 150),
       sizedBoxH(20),
       CustomText(
         text: username,
@@ -48,7 +46,7 @@ Widget createUserProfileCard(String image, String username) {
 }
 
 Widget createStatRow(List<String> values) {
-  final labels = ["İlanlar", "Yazılar", "Rozetler"];
+  final labels = ["Takipçi", "Takip", "İlan"];
 
   if (values.length != labels.length) {
     throw Exception("Values and labels should have the same length");

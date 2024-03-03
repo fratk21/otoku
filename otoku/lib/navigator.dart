@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otoku/pages/add/addForum/view/addForum.dart';
@@ -6,6 +7,8 @@ import 'package:otoku/pages/add/addProduct/view/add_product.dart';
 import 'package:otoku/pages/add/addProduct/view/selectmaincategory.dart';
 import 'package:otoku/pages/forum/screen/forum.screen.dart';
 import 'package:otoku/pages/home/screen/home.screen.dart';
+import 'package:otoku/pages/message_screen/message_add_search_screen.dart';
+import 'package:otoku/pages/message_screen/message_screen.dart';
 import 'package:otoku/pages/messages/screen/message.screen.dart';
 import 'package:otoku/pages/profile/view/profile.dart';
 import 'package:otoku/pages/settings/screen/settings.dart';
@@ -60,7 +63,7 @@ class _navigatorscreenState extends State<navigatorscreen> {
                 : selectedIndex == 1
                     ? addForum()
                     : selectedIndex == 2
-                        ? AddmessageScreen()
+                        ? message_add_search_screen()
                         : selectedIndex == 3
                             ? Settingscreen()
                             : addForum());
@@ -94,8 +97,8 @@ class _navigatorscreenState extends State<navigatorscreen> {
   List<Widget> _listOfWidget = <Widget>[
     const homescreen(),
     const forumscreen(),
-    const messagesscreen(),
-    const profilescreen(),
+    const message_screen(),
+    profilescreen(uid: FirebaseAuth.instance.currentUser!.uid.toString()),
   ];
 
   Widget getFabContent(int index) {
