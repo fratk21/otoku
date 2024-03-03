@@ -1,0 +1,7 @@
+![0](https://github.com/fratk21/otoku/assets/67985345/0d6b2993-e2e3-4ced-aaa3-5fa464f435db)
+![1](https://github.com/fratk21/otoku/assets/67985345/668262a0-2ef0-477e-8e1b-ef5c344c8f21)
+![2](https://github.com/fratk21/otoku/assets/67985345/8ddfb143-2d75-4daa-a0b7-1729ffc9ac15)
+![3](https://github.com/fratk21/otoku/assets/67985345/da01c13d-aef2-4410-8878-820cfd253aa8)
+![4](https://github.com/fratk21/otoku/assets/67985345/3ff5f875-c4b1-49b3-af94-b0297c425fc3)
+![5](https://github.com/fratk21/otoku/assets/67985345/a42d13be-f104-4174-afef-1bc54c9576d4)
+![6](https://github.com/fratk21/otoku/assets/67985345/be57ce9d-67e3-4f48-92c5-6152cc713ccd)
